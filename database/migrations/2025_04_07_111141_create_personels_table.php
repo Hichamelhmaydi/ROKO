@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('personels', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('email')->unique();
+            $table->string('telephone');
+            $table->string('adrees');
+            $table->string('N°_cart');
+            $table->string('N°_passport');
+            $table->string('image_chemain');
             $table->timestamps();
         });
     }
