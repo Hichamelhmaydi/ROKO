@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('voyages', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('description');
+            $table->string('cover');
+            $table->float('prix');
+            $table->string('destination');
+            $table->string('presonel');
+            $table->string('itineraire');
+            $table->enum('statut', ['en_traitement', 'disponible', 'indisponible']);
+            $table->date('date_depart');
+            $table->date('date_retour');
+            $table->json('les_images');
+            $table->foreignId('activite_id')->constrained('activites')->onDelete('cascade');
             $table->timestamps();
         });
     }
