@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('avis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('voyage_id')->constrained('voyages');
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('contenu');
+            $table->dateTime('date_creation');
             $table->timestamps();
         });
     }
