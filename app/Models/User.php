@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Http\Controllers\AuthController;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
+
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -18,6 +20,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    protected $table = 'users';
     protected $fillable = [
         'nom',
         'prenom',
@@ -25,7 +28,6 @@ class User extends Authenticatable
         'telephone',
         'password',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
