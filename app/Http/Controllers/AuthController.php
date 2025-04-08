@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
-    {
+    public function register(Request $request){
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255|unique:users',
@@ -38,5 +37,32 @@ class AuthController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
+    }
+
+    public function login(Request $request){
+        $credentials = $request->only('email', 'password');
+
+        try {
+            if (!$token = Auth::guard('api')->attempt($credentials)) {
+                return response()->json([
+                    'error' => 'Identifiants incorrects'
+                ], 401);
+            }
+
+            return $this->respondWithToken($token);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Erreur de connexion',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    protected function respondWithToken($token){
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => Auth::guard('api')->factory()->getTTL() * 60
+        ]);
     }
 }
