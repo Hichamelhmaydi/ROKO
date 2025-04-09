@@ -41,14 +41,14 @@ class AuthController extends Controller
 
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
-
+    
         try {
             if (!$token = Auth::guard('api')->attempt($credentials)) {
                 return response()->json([
                     'error' => 'Identifiants incorrects'
                 ], 401);
             }
-
+    
             return $this->respondWithToken($token);
         } catch (\Exception $e) {
             return response()->json([
@@ -57,7 +57,32 @@ class AuthController extends Controller
             ], 500);
         }
     }
-    
+
+    public function me(){
+        $user = Auth::guard('api')->user();
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+        return response()->json([
+            'user' => $user,
+            'role' => $user->role
+        ]);
+    }
+
+    public function logout(){
+        try {
+            Auth::guard('api')->logout();
+            return response()->json([
+                'message' => 'Déconnexion réussie'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Erreur lors de la déconnexion',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+ 
     protected function respondWithToken($token){
         return response()->json([
             'access_token' => $token,
