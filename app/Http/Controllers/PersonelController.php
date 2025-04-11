@@ -10,8 +10,8 @@ class PersonelController extends Controller
     public function AjouterPersonel(Request $request){
         try {
             $validatedData = $request->validate([
-                'nom' => 'required|string|max:255',
-                'prenom' => 'required|string|max:255|unique:personels',
+                'nom' => 'required|string|max:25',
+                'prenom' => 'required|string|max:25|unique:personels',
                 'email' => 'required|email|unique:personels',
                 'telephone' => 'required|string|max:11',
                 'adrees' => 'required|string|min:8',
