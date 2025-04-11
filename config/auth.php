@@ -35,17 +35,52 @@ return [
     |
     */
 
+// 'guards' => [
+//     'web' => [
+//         'driver' => 'session',
+//         'provider' => 'users',
+//     ],
+
+//     'api' => [
+//         'driver' => 'jwt',  
+//         'provider' => 'users',
+//     ],
+// ],
 'guards' => [
     'web' => [
         'driver' => 'session',
         'provider' => 'users',
     ],
-
     'api' => [
-        'driver' => 'jwt',  
+        'driver' => 'jwt',
         'provider' => 'users',
     ],
+    'admin' => [
+        'driver' => 'jwt',
+        'provider' => 'admins',
+    ],
+    'personel' => [
+        'driver' => 'jwt',
+        'provider' => 'personels',
+    ],
 ],
+
+'providers' => [
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => env('AUTH_MODEL', App\Models\User::class),
+    ],
+    'admins' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Admin::class,
+    ],
+    'personels' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Personel::class,
+    ],
+],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -64,17 +99,17 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
+    // 'providers' => [
+    //     'users' => [
+    //         'driver' => 'eloquent',
+    //         'model' => env('AUTH_MODEL', App\Models\User::class),
+    //     ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
