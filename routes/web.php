@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
+Route::post('/register', function () {
+    return redirect('/dashboard');
+})->name('register.post');
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
