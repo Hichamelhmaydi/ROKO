@@ -19,3 +19,12 @@ Route::get('/login', function () {
 })->name('login');
 
 
+
+
+
+
+
+
+Route::view('/explorer', 'voyages.explorer');
+
+
