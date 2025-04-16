@@ -25,6 +25,7 @@ Route::get('/login', function () {
 
 
 
+Route::view('/itineraire', 'voyages.itineraire');
 Route::view('/explorer', 'voyages.explorer');
 
 
