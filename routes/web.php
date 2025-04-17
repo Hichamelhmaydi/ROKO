@@ -28,5 +28,6 @@ Route::view('/les-images', 'voyages.les-image');
 Route::view('/paiment', 'voyages.paiment');
 Route::view('/itineraire', 'voyages.itineraire');
 Route::view('/explorer', 'voyages.explorer');
-
+Route::view('/profile', 'auth.profile');
+Route::view('/paiment_form', 'voyages.paiment_form');
 
