@@ -1,5 +1,5 @@
 @extends('layouts/app')
-@section('title','home')
+@section('title','itineraire')
 @section('content')
 <body class="min-h-screen bg-white">
     <main>

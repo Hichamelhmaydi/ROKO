@@ -23,7 +23,7 @@ Route::get('/login', function () {
 
 
 
-
+Route::view('/avis', 'voyages.avis');
 Route::view('/les-images', 'voyages.les-image');
 Route::view('/paiment', 'voyages.paiment');
 Route::view('/itineraire', 'voyages.itineraire');

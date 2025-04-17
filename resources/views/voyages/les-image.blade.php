@@ -1,5 +1,5 @@
 @extends('layouts/app')
-@section('title','home')
+@section('title','les images')
 @section('content')
 <body class="min-h-screen bg-white">
     <main>
