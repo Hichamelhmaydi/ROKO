@@ -30,4 +30,4 @@ Route::view('/itineraire', 'voyages.itineraire');
 Route::view('/explorer', 'voyages.explorer');
 Route::view('/profile', 'auth.profile');
 Route::view('/paiment_form', 'voyages.paiment_form');
-
+Route::view('/statistiques', 'admin.statistiques');
