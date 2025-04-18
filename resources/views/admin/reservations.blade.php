@@ -1,5 +1,5 @@
 @extends('layouts/app')
-@section('title','statistiques')
+@section('title','reservations')
 @section('content')
 <main>
     <div class="absolute -left-48 top-0 w-[800px] h-[800px] rounded-full bg-[#a42a2a] -z-10"></div>
