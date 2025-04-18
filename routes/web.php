@@ -36,3 +36,4 @@ Route::view('/voyageurs', 'admin.voyageurs');
 Route::view('/gestion-avis', 'admin.gestion_avis');
 Route::view('/gestion-personel', 'admin.gestion_personel');
 Route::view('/formule_personel', 'admin.formule_personel');
+Route::view('/les-avtites', 'admin.les_activites');
