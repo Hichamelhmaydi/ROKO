@@ -34,3 +34,4 @@ Route::view('/statistiques', 'admin.statistiques');
 Route::view('/reservations', 'admin.reservations');
 Route::view('/voyageurs', 'admin.voyageurs');
 Route::view('/gestion-avis', 'admin.gestion_avis');
+Route::view('/gestion-personel', 'admin.gestion_personel');
