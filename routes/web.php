@@ -33,3 +33,4 @@ Route::view('/paiment_form', 'voyages.paiment_form');
 Route::view('/statistiques', 'admin.statistiques');
 Route::view('/reservations', 'admin.reservations');
 Route::view('/voyageurs', 'admin.voyageurs');
+Route::view('/gestion-avis', 'admin.gestion_avis');
