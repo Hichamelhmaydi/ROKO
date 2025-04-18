@@ -39,3 +39,4 @@ Route::view('/formule_personel', 'admin.formule_personel');
 Route::view('/les-avtites', 'admin.les_activites');
 Route::view('/activite-formule', 'admin.activite_formule');
 Route::view('/voyageur-detail', 'admin.voyageur_detail');
+Route::view('/personel-detail', 'admin.personel_detail');
